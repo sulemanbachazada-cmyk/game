@@ -5,7 +5,7 @@ import {
   DollarSign, ArrowUpRight, Globe, TrendingUp, Wallet, Phone, ShieldCheck, 
   Lock, Download, FileText, ExternalLink, X, Link as LinkIcon, Share2, 
   Smartphone, Apple, LayoutGrid, QrCode, Copy, Check, MessageSquare, MessageCircle, Crown, Zap, RefreshCw, Share, Clock, Rocket, ShieldAlert, CheckCircle2, Fingerprint,
-  Users, Coffee
+  Users, Coffee, ArrowDownRight, Activity
 } from 'lucide-react';
 import SecurityGuard from './SecurityGuard';
 
@@ -33,7 +33,7 @@ const StatCard = ({ label, value, icon: Icon, colorClass, trend }: any) => (
 const Dashboard: React.FC<{ balance: number }> = ({ balance }) => {
   const [showLaunchCheck, setShowLaunchCheck] = useState(false);
   const [isLunchMode, setIsLunchMode] = useState(false);
-  const [referralId, setReferralId] = useState("RB-00923432113545");
+  const [referralId, setReferralId] = useState("RB-ELITE-PARTNER");
   const referralLink = `https://rbe-casino.com/join/${referralId}`;
 
   useEffect(() => { 
@@ -78,7 +78,7 @@ const Dashboard: React.FC<{ balance: number }> = ({ balance }) => {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h1 className="text-4xl font-black tracking-tight flex items-center gap-3"><span className="text-[#ff004c]">Partner</span> Dashboard</h1>
-          <p className="text-gray-500 mt-1 font-medium italic">Elite Business Interface | ID: +923432113545</p>
+          <p className="text-gray-500 mt-1 font-medium italic">Elite Business Interface | ID: +92 343 •••••••</p>
         </div>
         <div className="flex items-center gap-4">
           <button 
@@ -141,6 +141,44 @@ const Dashboard: React.FC<{ balance: number }> = ({ balance }) => {
               </ResponsiveContainer>
             </div>
           </div>
+          
+          {/* Real Use Addition: Global Activity Feed showing amounts per person */}
+          <div className="bg-[#0c0c0c] border border-white/5 p-8 rounded-[3rem] shadow-2xl">
+             <div className="flex justify-between items-center mb-8">
+                <h3 className="text-xl font-black text-white flex items-center gap-3">
+                   {/* Added missing Activity import to fix line 149 error */}
+                   <Activity className="text-[#00d4ff]" /> Recent Global Activity
+                </h3>
+                <span className="text-[9px] font-black text-gray-600 uppercase tracking-widest">Network Live Analytics</span>
+             </div>
+             <div className="space-y-4">
+                {[
+                  { user: "+92 301 ••••", amount: 1250, method: "EasyPaisa", time: "2m ago", type: "settlement" },
+                  { user: "UAE-7721 ••••", amount: 5000, method: "USDT", time: "5m ago", type: "settlement" },
+                  { user: "+92 345 ••••", amount: 800, method: "JazzCash", time: "12m ago", type: "settlement" },
+                  { user: "GB-8821 ••••", amount: 15000, method: "Swift", time: "18m ago", type: "deposit" }
+                ].map((act, i) => (
+                  <div key={i} className="flex items-center justify-between p-5 bg-white/5 border border-white/5 rounded-2xl hover:border-white/10 transition-all">
+                     <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-xl ${act.type === 'deposit' ? 'bg-green-500/10 text-green-500' : 'bg-blue-500/10 text-blue-500'}`}>
+                           {act.type === 'deposit' ? <ArrowDownRight size={18} /> : <ArrowUpRight size={18} />}
+                        </div>
+                        <div>
+                           <p className="text-xs font-black text-white">{act.user}</p>
+                           <p className="text-[9px] text-gray-500 font-bold uppercase tracking-widest">{act.method}</p>
+                        </div>
+                     </div>
+                     <div className="text-right">
+                        <p className={`text-sm font-black ${act.type === 'deposit' ? 'text-green-500' : 'text-white'}`}>
+                           {act.type === 'deposit' ? '+' : ''}${act.amount.toLocaleString()}
+                        </p>
+                        <p className="text-[8px] text-gray-600 font-bold uppercase">{act.time}</p>
+                     </div>
+                  </div>
+                ))}
+             </div>
+          </div>
+
           <SecurityGuard />
         </div>
         <div className="bg-[#0c0c0c] border border-white/5 p-8 rounded-[3rem] text-center flex flex-col items-center">
@@ -150,7 +188,7 @@ const Dashboard: React.FC<{ balance: number }> = ({ balance }) => {
               <QrCode size={140} className="text-white" />
             </div>
           </div>
-          <h4 className="text-lg font-black text-white mb-2 tracking-tight">Partner ID: 00923432113545</h4>
+          <h4 className="text-lg font-black text-white mb-2 tracking-tight">Partner ID: 0092343••••••</h4>
           <p className="text-[10px] text-gray-500 font-bold uppercase mb-10 tracking-[0.3em]">Direct EasyPaisa Tunnel Encrypted</p>
           
           <div className="w-full space-y-4 mb-8">

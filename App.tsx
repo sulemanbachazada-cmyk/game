@@ -95,7 +95,7 @@ const App: React.FC = () => {
         <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} balance={balance} />
         <Sidebar isOpen={sidebarOpen} close={() => setSidebarOpen(false)} onLogout={handleLogout} balance={balance} />
         
-        <a href="https://wa.me/923432113545" target="_blank" rel="noopener noreferrer" className="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl border-4 border-white/10"><MessageCircle className="text-white" size={32} /></a>
+        <a href="https://wa.me/923430000000" target="_blank" rel="noopener noreferrer" className="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl border-4 border-white/10"><MessageCircle className="text-white" size={32} /></a>
 
         <main className="lg:pl-64 pt-20 p-4 lg:p-8 min-h-screen">
           <Routes>

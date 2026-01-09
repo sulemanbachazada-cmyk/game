@@ -13,8 +13,18 @@ export interface Transaction {
   amount: number;
   type: 'deposit' | 'withdrawal';
   method: string;
-  status: 'completed' | 'pending' | 'failed';
+  status: 'settled' | 'pending' | 'authorized' | 'failed';
   date: string;
+  accountLabel?: string;
+}
+
+export interface PayoutMethod {
+  id: string;
+  type: 'easypaisa' | 'jazzcash' | 'crypto' | 'bank';
+  label: string;
+  identifier: string;
+  isVerified: boolean;
+  priority: 'Instant' | 'Standard' | 'VIP';
 }
 
 export interface UserStats {

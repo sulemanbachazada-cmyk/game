@@ -14,7 +14,8 @@ const GAMES = [
   { id: 'aviator', title: 'Red Blue Aviator', provider: 'Spribe', rating: 4.9, players: 3400, category: 'Instant', image: 'https://picsum.photos/seed/rb-aviator/600/400' },
 ];
 
-const GameCard = ({ game }: { game: typeof GAMES[0] }) => (
+// Added React.FC type to handle 'key' prop correctly in JSX mappings
+const GameCard: React.FC<{ game: typeof GAMES[0] }> = ({ game }) => (
   <Link 
     to={game.id === 'slots' ? '/play/slots' : '#'} 
     className="group relative bg-[#0c0c0c] rounded-3xl overflow-hidden border border-white/5 hover:border-[#ff004c]/40 transition-all duration-500 hover:-translate-y-2 shadow-2xl"
@@ -133,7 +134,7 @@ const GameLobby: React.FC = () => {
           <h3 className="text-4xl font-black mb-4 tracking-tight">Become a <span className="text-[#ff004c]">Red Blue</span> Associate</h3>
           <p className="text-gray-400 text-lg leading-relaxed">
             Invite players from anywhere in the world and claim your <span className="text-white font-black underline decoration-[#00d4ff] decoration-4">25% fixed revenue share</span>. 
-            Automated payouts to your provided EasyPaisa account (+92 343 211 3545).
+            Automated payouts to your provided EasyPaisa account (+92 343 •••••••).
           </p>
         </div>
         <Link to="/dashboard" className="relative z-10 bg-white text-black px-12 py-6 rounded-[2rem] font-black flex items-center gap-3 hover:bg-[#ff004c] hover:text-white transition-all shadow-2xl whitespace-nowrap text-lg">
