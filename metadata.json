@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Red Blue Eyelashes World",
+  "description": "Premium global gaming platform with real-time payouts to EasyPaisa, JazzCash, and International Wallets. Partner-focused revenue sharing.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
